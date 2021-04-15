@@ -11,7 +11,7 @@ if (interactive()) {
     dataUrls <- data.frame(line = webFile, stringsAsFactors = F) %>%
         filter(grepl('read.table("https://www.canvasxpress.org', line,  fixed = TRUE)) %>%
         #exclude specific larger files
-        filter(!grepl('cX-codiv|LungCancinoma|visium|Olympic|exprtcga', line)) %>% 
+        filter(!grepl('cX-codiv|LungCancinoma|visium|Olympic|exprtcga|titanic|gwas', line)) %>% 
         mutate(url = gsub('.*=read.table\\("', '', line),
                url = gsub('", .*', '', url)) %>%
         select(url) %>%
